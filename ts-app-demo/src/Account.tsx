@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useUser } from "./context/userContext";
+import { useSnapshot } from "valtio";
+import { userState } from "./valtio/userState";
 
 export function Account() {
-  const { user } = useUser();
+  const { user } = useSnapshot(userState);
   const navigate = useNavigate();
 
   if (!user) {
